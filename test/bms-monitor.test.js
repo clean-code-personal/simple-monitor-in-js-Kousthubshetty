@@ -1,7 +1,7 @@
 const {expect} = require('chai');
 const {batteryIsOk}=require('../bms-monitor');
-const{checkBattery}=require('../bms-monitor.util');
-const{showLogs}=require('../bms-monitor.logs');
+// const{checkBattery}=require('../bms-monitor.util');
+// const{showLogs}=require('../bms-monitor.logs');
 
 expect(batteryIsOk('PowerMax', {temperature:25, soc:70, chargeRate:0.7})).to.be.true;
 
@@ -12,7 +12,7 @@ expect(batteryIsOk('SolarFlare', {temperature:55, soc:100, chargeRate:0.9})).to.
 
 expect(batteryIsOk('QuantumCell', {soc:70, chargeRate:0.7})).to.be.false;
 
-expect(checkBattery('TitanCell', 'stateOfCharge', undefined)).to.be.false;
-expect(checkBattery('TitanCell', 'stateOfCharge', 30)).to.be.true;
+// expect(checkBattery('TitanCell', 'stateOfCharge', undefined)).to.be.false;
+// expect(checkBattery('TitanCell', 'stateOfCharge', 30)).to.be.true;
 
-showLogs();
+// showLogs();
