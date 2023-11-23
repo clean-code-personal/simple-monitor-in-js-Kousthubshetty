@@ -11,7 +11,11 @@ function checkBattery(batteryName, factor, value){
         logMessage('error', batteryName, value, `${factors[factor].name} is unknown.`);
         return false;
     }
-    if (value < factors[factor].min || value > factors[factor].max) {
+    if (value < factors[factor].min) {
+        logMessage('warning', batteryName, value, `${factors[factor].name} is out of range!`);
+        return false;
+    }
+    if (value > factors[factor].max) {
         logMessage('warning', batteryName, value, `${factors[factor].name} is out of range!`);
         return false;
     }
