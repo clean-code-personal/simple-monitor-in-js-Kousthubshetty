@@ -5,17 +5,17 @@ const factors = {
     stateOfCharge:{ name:'State of Charge', min:20, max:80 },
     chargeRate:{ name:'Charge rate', min:0, max:0.8 }
 };
-// function isDefined(value){
-//     if (value === undefined){
-//         // logMessage('error', batteryName, value, `${factors[factor].name} is unknown.`);
-//         console.log('error', batteryName, value, `${factors[factor].name} is unknown.`);
-//         return false;
-//     }else {
-//         return true;
-//     }
-// }
+function isDefined(batteryName, factor, value){
+    if (value === undefined){
+        logMessage('error', batteryName, value, `${factors[factor].name} is unknown.`);
+        // console.log('error', batteryName, value, `${factors[factor].name} is unknown.`);
+        return false;
+    }else {
+        return true;
+    }
+}
 function checkBattery(batteryName, factor, value){
-    let isOk=true
+    let isOk=isDefined(batteryName, factor, value)
     // if (value === undefined){
     //     // logMessage('error', batteryName, value, `${factors[factor].name} is unknown.`);
     //     console.log('error', batteryName, value, `${factors[factor].name} is unknown.`);
