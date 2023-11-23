@@ -1,7 +1,7 @@
 const {expect} = require('chai');
-const {batteryIsOk}=require('./bms-monitor');
-const{checkBattery}=require('./bms-monitor.util');
-const{showLogs}=require('./bms-monitor.logs');
+const {batteryIsOk}=require('../bms-monitor');
+const{checkBattery}=require('../bms-monitor.util');
+const{showLogs}=require('../bms-monitor.logs');
 
 expect(batteryIsOk('PowerMax', {temperature:25, soc:70, chargeRate:0.7})).to.be.true;
 
