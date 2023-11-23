@@ -1,7 +1,4 @@
 const{checkBattery} = require('./bms-monitor.util');
-// const{logMessage} = require('./bms-monitor.logs');
-
-
 
 function batteryIsOk(batteryName,{temperature, soc, chargeRate}) {
     let temperatureIsOk = checkBattery(batteryName,'temperature',temperature);
@@ -10,7 +7,5 @@ function batteryIsOk(batteryName,{temperature, soc, chargeRate}) {
 
     return temperatureIsOk && socIsOk && chargeRateIsOk;
 }
-
-// showLogs();
 
 module.exports={batteryIsOk};

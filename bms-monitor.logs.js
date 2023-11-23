@@ -12,7 +12,11 @@ function logMessage(type, batteryName, value, message){
 
 function showLogs(){
     for(let log of logs){
-        console.log(log['message']);
+        if (log['type'] == 'warning'){
+            console.warn(log['message']);
+        }else if (log['type'] == 'error'){
+            console.error(log['message']);
+        }
     }
 }
 
