@@ -8,11 +8,12 @@ const factors = {
 };
 
 function checkBattery(batteryName, factor, value){
-    if (value === undefined){
-        // logMessage('error', batteryName, value, `${factors[factor].name} is unknown.`);
-        console.log('error', batteryName, value, `${factors[factor].name} is unknown.`);
-        return false;
-    }else if (value < factors[factor].min) {
+    // if (value === undefined){
+    //     // logMessage('error', batteryName, value, `${factors[factor].name} is unknown.`);
+    //     console.log('error', batteryName, value, `${factors[factor].name} is unknown.`);
+    //     return false;
+    // }else 
+    if (value < factors[factor].min) {
         // logMessage('warning', batteryName, value, `${factors[factor].name} is out of range!`);
         console.log('warning', batteryName, value, `${factors[factor].name} is out of range!`);
         return false;
