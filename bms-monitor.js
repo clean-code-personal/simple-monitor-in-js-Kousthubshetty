@@ -1,18 +1,11 @@
-const {expect} = require('chai');
+const{checkBattery} = require('./bms-monitor.util');
 
-function batteryIsOk(temperature, soc, charge_rate) {
-    if (temperature < 0 || temperature > 45) {
-        console.log('Temperature is out of range!');
-        return false;
-    } else if (soc < 20 || soc > 80) {
-        console.log('State of Charge is out of range!')
-        return false;
-    } else if (charge_rate > 0.8) {
-        console.log('Charge rate is out of range!');
-        return false;
-    }
-    return true;
+function batteryIsOk(batteryName,{temperature, soc, chargeRate}) {
+    let temperatureIsOk = checkBattery(batteryName,'temperature',temperature);
+    let socIsOk = checkBattery(batteryName,'stateOfCharge',soc);
+    let chargeRateIsOk = checkBattery(batteryName,'chargeRate',chargeRate);
+
+    return temperatureIsOk && socIsOk && chargeRateIsOk;
 }
 
-expect(batteryIsOk(25, 70, 0.7)).to.be.true;
-expect(batteryIsOk(50, 85, 0)).to.be.false;
+module.exports={batteryIsOk};
